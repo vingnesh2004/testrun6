@@ -3,11 +3,11 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.mycompany</groupId>
-	<artifactId>test-run-6</artifactId>
+	<artifactId>test-run-7</artifactId>
 	<version>1.0.0-SNAPSHOT</version>
 	<packaging>mule-application</packaging>
 
-	<name>test-run-6</name>
+	<name>test-run-7</name>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -33,7 +33,7 @@
 			    <cloudHubDeployment>
 			      <uri>https://anypoint.mulesoft.com</uri>
 			      <muleVersion>${app.runtime}</muleVersion>
-			      <applicationName>testRun6</applicationName>
+			      <applicationName>testRun7</applicationName>
 			      <environment>DEV</environment>
 			      <region>us-east-1 </region>
 			      <workers>1</workers>
