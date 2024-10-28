@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:salesforce="http://www.mulesoft.org/schema/mule/salesforce" xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core"
+	xmlns:json-logger="http://www.mulesoft.org/schema/mule/json-logger"
+	xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/json-logger http://www.mulesoft.org/schema/mule/json-logger/current/mule-json-logger.xsd
+http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd
+http://www.mulesoft.org/schema/mule/salesforce http://www.mulesoft.org/schema/mule/salesforce/current/mule-salesforce.xsd">
+	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="a222db00-7e08-4c51-bf4a-1823f702cdb5" basePath="test" >
+		<http:listener-connection host="0.0.0.0" port="8081" />
+	</http:listener-config>
+	<flow name="test-flow" doc:id="e7dff205-6431-4107-9eee-2510d3f71752" >
+		<http:listener doc:name="Listener" doc:id="242ef3bb-a615-4f37-94ee-1205c5370b65" config-ref="HTTP_Listener_config" path="record"/>
+		<logger level="INFO" doc:name="Start" doc:id="aa19702b-eeb2-4c85-b269-d796b79f1796" message='#["The flow started"]'/>
+		<set-payload value="#[{&#10;  &quot;orderData&quot;: {&#10;    &quot;poNumber&quot;: &quot;331242325&quot;,&#10;    &quot;signatureRequiredFlag&quot;: false,&#10;    &quot;shipInstructions&quot;: &quot;Don't break it&quot;,&#10;    &quot;giftWrapFlag&quot;: true,&#10;    &quot;giftWrapMessage&quot;: &quot;You rock!&quot;,&#10;    &quot;currencyCode&quot;: &quot;USD&quot;,&#10;    &quot;subTotal&quot;: 41.5&#10;  },&#10;  &quot;customer&quot;: {&#10;    &quot;firstName&quot;: &quot;Caelius&quot;,&#10;    &quot;lastName&quot;: &quot;Consulting&quot;,&#10;    &quot;phoneNumber&quot;: &quot;9398919203&quot;,&#10;    &quot;email&quot;: &quot;caelius3457@gmail.com&quot;,&#10;    &quot;address&quot;: {&#10;      &quot;address1&quot;: &quot;1234 Main Street&quot;,&#10;      &quot;city&quot;: &quot;Hyderabad&quot;,&#10;      &quot;zipCode&quot;: &quot;521301&quot;,&#10;      &quot;country&quot;: &quot;India&quot;&#10;    }&#10;  },&#10;  &quot;items&quot;: [&#10;    {&#10;      &quot;id&quot;: &quot;143894&quot;,&#10;      &quot;category&quot;: &quot;T-Shirt&quot;,&#10;      &quot;quantity&quot;: 1,&#10;      &quot;size&quot;: &quot;L&quot;&#10;    },&#10;    {&#10;      &quot;id&quot;: &quot;4546483&quot;,&#10;      &quot;category&quot;: &quot;Bike-toy&quot;,&#10;      &quot;quantity&quot;: 2,&#10;      &quot;size&quot;: &quot;M&quot;&#10;    }&#10;  ]&#10;}]" doc:name="Payload : Order " doc:id="52472357-3c73-4750-b9a3-17265b9a90fd" />
+		<ee:transform doc:name="Preparing Input Payload" doc:id="a7a9ac3f-fe42-4fa5-8858-594d3e13963e" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[%dw 2.0
+output application/json
+---
+payload]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+		<logger level="INFO" doc:name="End" doc:id="b09d844e-fe89-4694-a4c8-9fffee1db47a" message='#["The flow ended"]'/>
+	</flow>
+</mule>
