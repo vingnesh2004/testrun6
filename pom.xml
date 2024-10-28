@@ -33,13 +33,12 @@
 			    <cloudHubDeployment>
 			      <uri>https://anypoint.mulesoft.com</uri>
 			      <muleVersion>${app.runtime}</muleVersion>
-			       <server>poc</server>
 			      <applicationName>testRun5</applicationName>
 			      <environment>DEV</environment>
 			      <region>us-east-1 </region>
 			      <workers>1</workers>
 			      <workerType>MICRO</workerType>
-			       <authToken>773d80e3-685e-4469-b7d4-c68ce0915736</authToken>
+			       <authToken>c26c39cf-c76b-4ef1-8011-51aa5700fe06</authToken>
 			    </cloudHubDeployment>
 			  </configuration>
 			</plugin>
