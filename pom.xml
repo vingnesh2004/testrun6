@@ -38,7 +38,7 @@
 			      <region>us-east-1 </region>
 			      <workers>1</workers>
 			      <workerType>MICRO</workerType>
-			       <authToken>c7a4046a-46a7-4181-aaec-dea7858fa8f6</authToken>
+			       <authToken>5668e33a-46e4-46e3-9bed-b25502df970d</authToken>
 			    </cloudHubDeployment>
 			  </configuration>
 			</plugin>
