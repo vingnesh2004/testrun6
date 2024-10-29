@@ -7,9 +7,7 @@ pipeline {
             } 
         } 
         stage('Deploy to CloudHub') { 
-            environment { 
-                ANYPOINT_CREDENTIALS = credentials('anypointplatformcredentials') 
-            } 
+      
             steps { 
                 echo 'Deploying Mule project due to the latest code commit…' 
                 echo 'Deploying to the configured environment…' 
